@@ -230,7 +230,7 @@ model MemoryDocument {
   sourceEventId String   @db.Uuid @map("source_event_id")
   ticketId      String?  @db.Uuid @map("ticket_id")
   content       String
-  embedding     Unsupported("vector(768)")?
+  embedding     Unsupported("vector(3072)")?
   metadata      Json?
   createdAt     DateTime @default(now()) @map("created_at")
 
