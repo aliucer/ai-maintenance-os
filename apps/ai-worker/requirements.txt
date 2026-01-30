@@ -1,0 +1,11 @@
+# Kafka client
+confluent-kafka==2.13.0
+
+# LangChain
+langchain==1.2.7
+langchain-google-genai==4.2.0
+
+# HTTP + utils
+httpx==0.26.2
+pydantic==2.7.0
+python-dotenv==1.1.0

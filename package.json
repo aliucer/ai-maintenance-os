@@ -1,0 +1,14 @@
+{
+    "name": "maintain",
+    "private": true,
+    "scripts": {
+        "api": "pnpm -C apps/api run start:dev",
+        "mcp": "pnpm -C apps/mcp-server run start:dev"
+    },
+    "devDependencies": {
+        "@modelcontextprotocol/sdk": "^1.25.3",
+        "@types/node": "^25.1.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.9.3"
+    }
+}
