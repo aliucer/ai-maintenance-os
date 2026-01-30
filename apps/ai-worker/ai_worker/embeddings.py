@@ -13,7 +13,7 @@ class EmbeddingService:
     
     def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key or os.getenv("GOOGLE_API_KEY")
-        self.model = "text-embedding-004"
+        self.model = "gemini-embedding-001"
         # AI Studio Endpoint
         self.base_url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:embedContent"
         
