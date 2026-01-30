@@ -47,6 +47,6 @@ WHERE tablename = 'memory_documents';
 echo ""
 echo "[INFO] Memory infrastructure ready!"
 echo ""
-echo "Vector dimensions: 768 (Gemini text-embedding-004)"
+echo "Vector dimensions: 3072 (Gemini text-embedding-004)"
 echo "Index type: HNSW (Hierarchical Navigable Small World)"
 echo "Distance metric: Cosine similarity"

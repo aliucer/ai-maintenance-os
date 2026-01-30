@@ -13,12 +13,12 @@ class EmbeddingService:
     
     def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key or os.getenv("GOOGLE_API_KEY")
-        self.model = "gemini-embedding-001"
+        self.model = "text-embedding-004"
         # AI Studio Endpoint
         self.base_url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:embedContent"
         
     def embed(self, text: str) -> List[float]:
-        """Generate 768-dimensional embedding for text."""
+        """Generate 3072-dimensional embedding for text."""
         if not self.api_key:
             raise ValueError("GOOGLE_API_KEY not set")
             
@@ -29,7 +29,8 @@ class EmbeddingService:
             "model": f"models/{self.model}",
             "content": {
                 "parts": [{"text": text}]
-            }
+            },
+            "outputDimensionality": 3072
         }
         
         try:
