@@ -2,7 +2,7 @@
 
 An event-driven property maintenance system. It uses **AI (Gemini)** to triage tickets, **RAG** to recall past resolutions, and **Human-in-the-Loop** workflows to ensure safety.
 
-Built to demonstrate a pragmatic "Agentic" architecture: events, tools (MCP), and memory.
+Built to demonstrate a modular architecture using events, tools (MCP), and memory.
 
 ## Architecture
 
@@ -35,28 +35,26 @@ graph TD
     style Vector fill:#dfd,stroke:#333
 ```
 
-## How It Works (The Demo Story)
+## How It Works
 
-This system isn't just a CRUD app. It learns.
-
-### 🎬 Scene 1: The Incident (AI Triage)
+### 1. Triage (Classification)
 A tenant reports **"Boiler making weird clicking noise"**.
 1.  **Ingestion**: The system accepts the ticket and publishes an event (`ticket.created`).
-2.  **Analysis**: The AI Worker wakes up, analyzes the text using Gemini.
-3.  **Triage**: It classifies the issue as **URGENT** (Priority 4) instantly.
-4.  **Action**: If confidence is high (>90%), it auto-triages in milliseconds.
+2.  **Analysis**: The AI Worker analyzes the text.
+3.  **Triage**: It classifies the issue as **URGENT** (Priority 4).
+4.  **Action**: If confidence is high, it updates the status automatically.
 
-### 🎬 Scene 2: The Resolution (Institutional Memory)
-The manager sends "Mike's Heating". Mike fixes it: *"Replaced faulty thermocouple."*
-*   **The Magic**: When the ticket is marked resolved, the system **embeds** the problem and solution into its Vector Memory (pgvector).
-*   It now "knows" what a clicking boiler usually means.
+### 2. Resolution (Learning)
+The manager assigns a vendor who fixes the issue: *"Replaced faulty thermocouple."*
+*   **Vector Storage**: When resolved, the system **embeds** the problem and solution into the vector database (pgvector).
+*   This builds a knowledge base for future incidents.
 
-### 🎬 Scene 3: The Recall (RAG)
+### 3. Recall (RAG)
 Two weeks later, a different unit reports **"No heat, clicking sound"**.
-1.  **Recall**: Before answering, the AI searches its memory.
-2.  **Context**: It finds the previous "thermocouple" incident.
-3.  **Result**: The AI suggests: *"Likely thermocouple issue, similar to Unit 101."*
-4.  **Outcome**: The right vendor is sent immediately with the right part.
+1.  **Recall**: Before answering, the AI searches its vector memory.
+2.  **Context**: It retrieves the previous "thermocouple" incident.
+3.  **Result**: The AI suggests: *"Likely thermocouple issue, based on similar incident in Unit 101."*
+
 
 ## Quick Start
 
@@ -71,7 +69,7 @@ cd apps/api && pnpm prisma migrate deploy && cd ..
 # 3. Start Services (3 Terminals)
 cd apps/api && pnpm run start:dev          # API
 cd apps/mcp-server && npx ts-node src/index.ts  # MCP Tools
-cd apps/ai-worker && python -m ai_worker.main   # AI Brain
+cd apps/ai-worker && python -m ai_worker.main   # AI Worker
 
 # 4. Run the Full Demo
 ./scripts/demo-full.sh
