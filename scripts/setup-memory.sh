@@ -28,6 +28,12 @@ SELECT table_name FROM information_schema.tables WHERE table_name = 'memory_docu
 "
 
 echo ""
+echo "--- Step 2.5: Ensure Vector Dimensions are 3072 ---"
+docker exec $CONTAINER psql -U $DB_USER -d $DB_NAME -c "
+ALTER TABLE memory_documents ALTER COLUMN embedding TYPE vector(3072);
+"
+
+echo ""
 echo "--- Step 3: Create HNSW index for vector search ---"
 docker exec $CONTAINER psql -U $DB_USER -d $DB_NAME -c "
 CREATE INDEX IF NOT EXISTS memory_documents_embedding_idx 
@@ -47,6 +53,6 @@ WHERE tablename = 'memory_documents';
 echo ""
 echo "[INFO] Memory infrastructure ready!"
 echo ""
-echo "Vector dimensions: 3072 (Gemini text-embedding-004)"
+echo "Vector dimensions: 3072 "
 echo "Index type: HNSW (Hierarchical Navigable Small World)"
 echo "Distance metric: Cosine similarity"

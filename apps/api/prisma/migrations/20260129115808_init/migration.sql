@@ -150,7 +150,7 @@ CREATE TABLE "memory_documents" (
     "source_event_id" UUID NOT NULL,
     "ticket_id" UUID,
     "content" TEXT NOT NULL,
-    "embedding" vector(768),
+    "embedding" vector(3072),
     "metadata" JSONB,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
