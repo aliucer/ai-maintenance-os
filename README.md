@@ -6,9 +6,13 @@ Built to demonstrate a modular architecture using events, tools (MCP), and memor
 
 ## Demo Video
 
-[![Demo Video](https://img.youtube.com/vi/iKakxa4hL-Q/0.jpg)](https://www.youtube.com/watch?v=iKakxa4hL-Q)
-
-Watch the full demo: [https://www.youtube.com/watch?v=iKakxa4hL-Q](https://www.youtube.com/watch?v=iKakxa4hL-Q)
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=iKakxa4hL-Q">
+    <img src="https://img.youtube.com/vi/iKakxa4hL-Q/maxresdefault.jpg" width="50%" alt="Watch the Demo" />
+  </a>
+  <br>
+  <a href="https://www.youtube.com/watch?v=iKakxa4hL-Q"><b> Watch the Live Demo </b></a>
+</div>
 
 ## Architecture
 
