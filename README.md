@@ -4,6 +4,12 @@ An event-driven property maintenance system. It uses **AI (Gemini)** to triage t
 
 Built to demonstrate a modular architecture using events, tools (MCP), and memory.
 
+## Demo Video
+
+[![Demo Video](https://img.youtube.com/vi/iKakxa4hL-Q/0.jpg)](https://www.youtube.com/watch?v=iKakxa4hL-Q)
+
+Watch the full demo: [https://www.youtube.com/watch?v=iKakxa4hL-Q](https://www.youtube.com/watch?v=iKakxa4hL-Q)
+
 ## Architecture
 
 ```mermaid
