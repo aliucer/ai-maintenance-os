@@ -63,7 +63,7 @@ graph TD
 ### 4. Memory (Postgres + pgvector)
 *   **Role**: The "Long-term Memory".
 *   **Responsibilities**:
-    *   Stores `memory_documents` with **3072-dimensional embeddings** (`text-embedding-004`).
+    *   Stores `memory_documents` with **3072-dimensional embeddings** (`gemini-embedding-001`).
     *   Uses HNSW index for fast similarity search.
 
 ## Data Flow (The "Triage Loop")
